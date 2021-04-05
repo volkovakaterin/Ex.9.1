@@ -33,19 +33,28 @@ class Character {
   }
 }
 class MathCharacter extends Character {
-  constructor(name, type, health, level, attack, defence, distance, stoned) {
+  constructor(name, type, health, level, attack, defence, distance) {
     super(name, type, health, level, attack, defence);
     this.distance = distance;
-    if (distance === 2) {
+  }
+
+  set attack(value) {
+    if (this.distance === 2) {
       this.attack *= 0.9;
-    } else if (distance === 3) {
+    } else if (this.distance === 3) {
       this.attack *= 0.8;
-    } else if (distance === 4) {
+    } else if (this.distance === 4) {
       this.attack *= 0.7;
-    } else if (distance === 5) {
+    } else if (this.distance === 5) {
       this.attack *= 0.6;
     }
-    this.stoned = stoned;
+  }
+
+  set stoned(value) {
+    this.stoned = value;
+  }
+
+  get stoned() {
     if (this.stoned === true) {
       this.attack -= Math.log2(this.distance) * 5;
     }
