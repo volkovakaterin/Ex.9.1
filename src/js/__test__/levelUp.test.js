@@ -24,10 +24,9 @@ test('levelUp2', () => {
     type: 'Magician',
     health: 100,
     level: 2,
-    attack: 125,
+    _attack: 100,
     defence: 50,
     distance: undefined,
-    stoned: undefined,
   };
   expect(test()).toEqual(expected);
 });

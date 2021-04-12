@@ -3,7 +3,7 @@ import { Magician, Daemon } from '../character';
 
 test('distance', () => {
   function test() {
-    const magician = new Magician('Maga', 1, true);
+    const magician = new Magician('Maga', 1);
     return magician;
   }
   const expected = {
@@ -11,17 +11,16 @@ test('distance', () => {
     type: 'Magician',
     health: 100,
     level: 1,
-    attack: 100,
+    _attack: 100,
     defence: 40,
     distance: 1,
-    stoned: true,
   };
   expect(test()).toEqual(expected);
 });
 
 test('distance1', () => {
   function test() {
-    const daemon = new Daemon('Daemon', 2, false);
+    const daemon = new Daemon('Daemon', 2);
     return daemon;
   }
   const expected = {
@@ -29,17 +28,16 @@ test('distance1', () => {
     type: 'Daemon',
     health: 100,
     level: 1,
-    attack: 90,
+    _attack: 100,
     defence: 40,
     distance: 2,
-    stoned: false,
   };
   expect(test()).toEqual(expected);
 });
 
 test('distance2', () => {
   function test() {
-    const daemon = new Daemon('Daemon', 3, false);
+    const daemon = new Daemon('Daemon', 3);
     return daemon;
   }
   const expected = {
@@ -47,17 +45,16 @@ test('distance2', () => {
     type: 'Daemon',
     health: 100,
     level: 1,
-    attack: 80,
+    _attack: 100,
     defence: 40,
     distance: 3,
-    stoned: false,
   };
   expect(test()).toEqual(expected);
 });
 
 test('distance3', () => {
   function test() {
-    const daemon = new Daemon('Daemon', 4, false);
+    const daemon = new Daemon('Daemon', 4);
     return daemon;
   }
   const expected = {
@@ -65,17 +62,16 @@ test('distance3', () => {
     type: 'Daemon',
     health: 100,
     level: 1,
-    attack: 70,
+    _attack: 100,
     defence: 40,
     distance: 4,
-    stoned: false,
   };
   expect(test()).toEqual(expected);
 });
 
 test('distance4', () => {
   function test() {
-    const daemon = new Daemon('Daemon', 5, false);
+    const daemon = new Daemon('Daemon', 5);
     return daemon;
   }
   const expected = {
@@ -83,10 +79,9 @@ test('distance4', () => {
     type: 'Daemon',
     health: 100,
     level: 1,
-    attack: 60,
+    _attack: 100,
     defence: 40,
     distance: 5,
-    stoned: false,
   };
   expect(test()).toEqual(expected);
 });

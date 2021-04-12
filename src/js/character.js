@@ -1,4 +1,6 @@
 /* eslint-disable linebreak-style */
+/* eslint-disable getter-return */
+/* eslint-disable no-underscore-dangle */
 /* eslint-disable no-mixed-operators */
 /* eslint-disable max-classes-per-file */
 class Character {
@@ -13,7 +15,7 @@ class Character {
     }
     this.health = health;
     this.level = level;
-    this.attack = attack;
+    this._attack = attack;
     this.defence = defence;
   }
 
@@ -40,24 +42,24 @@ class MathCharacter extends Character {
 
   set attack(value) {
     if (this.distance === 2) {
-      this.attack *= 0.9;
+      this._attack *= 0.9;
     } else if (this.distance === 3) {
-      this.attack *= 0.8;
+      this._attack *= 0.8;
     } else if (this.distance === 4) {
-      this.attack *= 0.7;
+      this._attack *= 0.7;
     } else if (this.distance === 5) {
-      this.attack *= 0.6;
+      this._attack *= 0.6;
     }
   }
 
   set stoned(value) {
-    this.stoned = value;
+    this._stoned = value;
   }
 
   get stoned() {
-    if (this.stoned === true) {
-      this.attack -= Math.log2(this.distance) * 5;
-    }
+    if (this._stoned === true) {
+      this._attack -= Math.log2(this.distance) * 5;
+    } return this._attack;
   }
 }
 
