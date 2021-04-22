@@ -40,7 +40,7 @@ class MathCharacter extends Character {
     this.distance = distance;
   }
 
-  set attack(value) {
+  get attack() {
     if (this.distance === 2) {
       this._attack *= 0.9;
     } else if (this.distance === 3) {
@@ -50,6 +50,14 @@ class MathCharacter extends Character {
     } else if (this.distance === 5) {
       this._attack *= 0.6;
     }
+    if (this._stoned === true) {
+      this._attack -= Math.log2(this.distance) * 5;
+    }
+    return this._attack;
+  }
+
+  set attack(value) {
+    this._attack = value;
   }
 
   set stoned(value) {
@@ -57,9 +65,7 @@ class MathCharacter extends Character {
   }
 
   get stoned() {
-    if (this._stoned === true) {
-      this._attack -= Math.log2(this.distance) * 5;
-    } return this._attack;
+    return this._stoned;
   }
 }
 

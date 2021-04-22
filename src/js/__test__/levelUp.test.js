@@ -24,7 +24,7 @@ test('levelUp2', () => {
     type: 'Magician',
     health: 100,
     level: 2,
-    _attack: 100,
+    _attack: 125,
     defence: 50,
     distance: undefined,
   };
