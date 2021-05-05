@@ -41,19 +41,11 @@ class MathCharacter extends Character {
   }
 
   get attack() {
-    if (this.distance === 2) {
-      this._attack *= 0.9;
-    } else if (this.distance === 3) {
-      this._attack *= 0.8;
-    } else if (this.distance === 4) {
-      this._attack *= 0.7;
-    } else if (this.distance === 5) {
-      this._attack *= 0.6;
+    let attack = this._attack * (11 - this.distance) / 10;
+    if (this.stoned) {
+      attack -= Math.log2(this.distance) * 5;
     }
-    if (this._stoned === true) {
-      this._attack -= Math.log2(this.distance) * 5;
-    }
-    return this._attack;
+    return (attack > 0) ? Math.round(attack) : 0;
   }
 
   set attack(value) {
